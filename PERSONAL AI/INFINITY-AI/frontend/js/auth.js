@@ -20,7 +20,7 @@ if (loginForm) {
         btn.textContent = "Logging in...";
 
         try {
-            const data = await apiRequest("/auth/login", {
+            const data = await apiRequest("/api/auth/login", {
                 method: "POST",
                 body: { email, password },
             });
