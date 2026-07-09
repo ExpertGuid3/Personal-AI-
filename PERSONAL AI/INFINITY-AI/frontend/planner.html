@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Daily Planner | INFINITY AI</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<div class="app">
+
+    <aside class="sidebar" id="sidebar">
+        <div class="brand-mini">
+            <div class="logo-circle">∞</div>
+            <div class="brand-mini-text">
+                <h2>INFINITY</h2>
+                <p>AI Productivity</p>
+            </div>
+        </div>
+
+        <nav class="nav-list">
+            <a href="dashboard.html" class="nav-item">
+                <i class="bi bi-grid-fill"></i> Dashboard
+            </a>
+            <a href="chat.html" class="nav-item">
+                <i class="bi bi-chat-dots-fill"></i> AI Chat
+            </a>
+            <a href="todo.html" class="nav-item">
+                <i class="bi bi-list-check"></i> Tasks
+            </a>
+            <a href="notes.html" class="nav-item">
+                <i class="bi bi-journal-text"></i> Notes
+            </a>
+            <a href="email.html" class="nav-item">
+                <i class="bi bi-envelope-fill"></i> Email Generator
+            </a>
+            <a href="planner.html" class="nav-item active">
+                <i class="bi bi-calendar-week"></i> Planner
+            </a>
+        </nav>
+
+        <a href="#" class="nav-item logout" id="logoutBtn">
+            <i class="bi bi-box-arrow-right"></i> Logout
+        </a>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>AI Daily Planner</h1>
+                <p>Tell it your priorities, get a time-blocked schedule</p>
+            </div>
+            <div class="top-actions">
+                <img class="profile-pic" src="https://i.pravatar.cc/120" alt="Profile">
+            </div>
+        </header>
+
+        <div id="plannerBanner" class="api-banner" style="display:none;"></div>
+
+        <section class="tool-layout">
+
+            <div class="panel">
+                <div class="panel-head">
+                    <h2><i class="bi bi-calendar-week"></i> Today's Priorities</h2>
+                </div>
+
+                <label class="form-label-sm">List your goals, meetings, or priorities for the day</label>
+                <textarea id="goalsInput" class="form-control-dark" placeholder="e.g. Gym at 7am, client call at 2pm, finish the quarterly report, reply to emails"></textarea>
+
+                <button class="btn-gradient" id="generatePlanBtn">
+                    <i class="bi bi-stars"></i> Create My Plan
+                </button>
+
+                <div style="margin-top:18px;">
+                    <label class="form-label-sm">Your Schedule</label>
+                    <div class="result-card placeholder" id="planResult">Your AI-generated daily plan will appear here.</div>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-head">
+                    <h2><i class="bi bi-clock-history"></i> Past Plans</h2>
+                </div>
+                <div class="history-list" id="plannerHistory">
+                    <div class="empty-hint">Your daily plans will show up here.</div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/planner.js"></script>
+</body>
+</html>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Email Generator | INFINITY AI</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body>
+
+<div class="app">
+
+    <aside class="sidebar" id="sidebar">
+        <div class="brand-mini">
+            <div class="logo-circle">∞</div>
+            <div class="brand-mini-text">
+                <h2>INFINITY</h2>
+                <p>AI Productivity</p>
+            </div>
+        </div>
+
+        <nav class="nav-list">
+            <a href="dashboard.html" class="nav-item">
+                <i class="bi bi-grid-fill"></i> Dashboard
+            </a>
+            <a href="chat.html" class="nav-item">
+                <i class="bi bi-chat-dots-fill"></i> AI Chat
+            </a>
+            <a href="todo.html" class="nav-item">
+                <i class="bi bi-list-check"></i> Tasks
+            </a>
+            <a href="notes.html" class="nav-item">
+                <i class="bi bi-journal-text"></i> Notes
+            </a>
+            <a href="email.html" class="nav-item active">
+                <i class="bi bi-envelope-fill"></i> Email Generator
+            </a>
+            <a href="planner.html" class="nav-item">
+                <i class="bi bi-calendar-week"></i> Planner
+            </a>
+        </nav>
+
+        <a href="#" class="nav-item logout" id="logoutBtn">
+            <i class="bi bi-box-arrow-right"></i> Logout
+        </a>
+    </aside>
+
+    <main class="main-content">
+
+        <header class="topbar">
+            <div>
+                <h1>AI Email Generator</h1>
+                <p>Describe what you need and get a ready-to-send email</p>
+            </div>
+            <div class="top-actions">
+                <img class="profile-pic" src="https://i.pravatar.cc/120" alt="Profile">
+            </div>
+        </header>
+
+        <div id="emailBanner" class="api-banner" style="display:none;"></div>
+
+        <section class="tool-layout">
+
+            <div class="panel">
+                <div class="panel-head">
+                    <h2><i class="bi bi-envelope"></i> Describe the Email</h2>
+                </div>
+
+                <label class="form-label-sm">What is this email about?</label>
+                <textarea id="emailPrompt" class="form-control-dark" placeholder="e.g. Follow up with a client who hasn't replied in a week about the project proposal"></textarea>
+
+                <label class="form-label-sm">Tone</label>
+                <select id="emailTone" class="form-control-dark">
+                    <option value="professional" selected>Professional</option>
+                    <option value="friendly">Friendly</option>
+                    <option value="formal">Formal</option>
+                    <option value="persuasive">Persuasive</option>
+                    <option value="apologetic">Apologetic</option>
+                </select>
+
+                <button class="btn-gradient" id="generateEmailBtn">
+                    <i class="bi bi-stars"></i> Generate Email
+                </button>
+
+                <div style="margin-top:18px;">
+                    <label class="form-label-sm">Generated Email</label>
+                    <div class="result-card placeholder" id="emailResult">Your AI-generated email will appear here.</div>
+                    <button class="btn-ghost" id="copyEmailBtn" style="margin-top:10px;display:none;">
+                        <i class="bi bi-clipboard"></i> Copy to clipboard
+                    </button>
+                </div>
+            </div>
+
+            <div class="panel">
+                <div class="panel-head">
+                    <h2><i class="bi bi-clock-history"></i> History</h2>
+                </div>
+                <div class="history-list" id="emailHistory">
+                    <div class="empty-hint">Your generated emails will show up here.</div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/email.js"></script>
+</body>
+</html>

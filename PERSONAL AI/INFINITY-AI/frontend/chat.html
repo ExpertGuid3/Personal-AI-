@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INFINITY AI Chat</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+<link rel="stylesheet" href="css/chat.css">
+</head>
+<body>
+
+<div class="app">
+
+    <!-- Sidebar -->
+    <aside class="sidebar" id="sidebar">
+
+        <div class="sidebar-top">
+            <div class="brand-mini">
+                <div class="logo-circle">∞</div>
+                <div class="brand-mini-text">
+                    <h2>INFINITY</h2>
+                    <p>Personal AI</p>
+                </div>
+            </div>
+
+            <button class="new-chat" id="newChat">
+                <i class="bi bi-plus-lg"></i>
+                New chat
+            </button>
+        </div>
+
+        <nav class="history" id="history">
+            <h6>Chats</h6>
+            <div class="empty-hint" id="historyEmptyHint">No previous chats yet.</div>
+        </nav>
+
+        <div class="sidebar-bottom">
+            <a href="dashboard.html" class="sidebar-link">
+                <i class="bi bi-grid"></i>
+                Dashboard
+            </a>
+            <div class="profile-mini" id="logoutMini" style="cursor:pointer;">
+                <img src="https://i.pravatar.cc/80" alt="">
+                <span id="accountName">My Account</span>
+                <i class="bi bi-box-arrow-right"></i>
+            </div>
+        </div>
+
+    </aside>
+
+    <!-- Main -->
+    <main class="chat">
+
+        <header class="chat-header">
+            <button class="icon-btn" id="toggleSidebar" aria-label="Toggle sidebar">
+                <i class="bi bi-list"></i>
+            </button>
+            <h1>INFINITY AI <span>· demo</span></h1>
+            <a href="dashboard.html" class="icon-btn" aria-label="Account">
+                <i class="bi bi-person-circle"></i>
+            </a>
+        </header>
+
+        <div class="chat-scroll" id="chatScroll">
+
+            <div class="empty-state" id="emptyState">
+                <div class="empty-logo">
+                    <div class="ring"></div>
+                    <div class="ring2"></div>
+                    <span>∞</span>
+                </div>
+                <h1>What can I help with?</h1>
+                <p>Ask me to plan your day, draft an email, summarize notes, or just talk something through.</p>
+
+                <div class="prompt-grid">
+                    <button class="prompt-card" data-prompt="Plan my day around 3 priorities: gym, a client call at 2pm, and finishing a report.">
+                        <i class="bi bi-calendar-week"></i>
+                        Plan my day
+                    </button>
+                    <button class="prompt-card" data-prompt="Draft a polite follow-up email to a client who hasn't replied in a week.">
+                        <i class="bi bi-envelope"></i>
+                        Draft an email
+                    </button>
+                    <button class="prompt-card" data-prompt="Summarize this in 3 bullet points: [paste your notes here]">
+                        <i class="bi bi-journal-text"></i>
+                        Summarize notes
+                    </button>
+                    <button class="prompt-card" data-prompt="Give me 5 fresh ideas to improve my daily productivity routine.">
+                        <i class="bi bi-lightbulb"></i>
+                        Get ideas
+                    </button>
+                </div>
+            </div>
+
+            <div class="messages" id="messages"></div>
+
+        </div>
+
+        <div class="composer">
+            <div class="composer-box">
+                <button class="tool-btn" aria-label="Attach file">
+                    <i class="bi bi-paperclip"></i>
+                </button>
+                <textarea
+                    id="message"
+                    rows="1"
+                    placeholder="Message INFINITY AI..."></textarea>
+                <button class="tool-btn" aria-label="Voice input">
+                    <i class="bi bi-mic"></i>
+                </button>
+                <button class="send-btn" id="send" aria-label="Send message">
+                    <i class="bi bi-arrow-up"></i>
+                </button>
+            </div>
+            <p class="disclaimer">INFINITY AI is a demo — replies are not from a real model yet.</p>
+        </div>
+
+    </main>
+</div>
+
+<script src="js/api.js"></script>
+<script src="js/chat.js"></script>
+</body>
+</html>
