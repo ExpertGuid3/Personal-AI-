@@ -30,6 +30,10 @@ def create_app():
     app.register_blueprint(planner_bp)
     app.register_blueprint(dashboard_bp)
 
+    @app.route("/")
+    def home():
+        return "INFINITY AI Backend is running!"
+
     @app.route("/api/health", methods=["GET"])
     def health():
         return jsonify({"status": "ok", "service": "INFINITY AI backend"}), 200
