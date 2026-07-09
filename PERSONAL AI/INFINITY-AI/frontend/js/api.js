@@ -3,7 +3,7 @@
    Include this BEFORE any other page script.
 ========================================== */
 
-const API_BASE_URL = "http://127.0.0.1:5000/api";
+const API_BASE_URL = "https://personal-ai-dada.onrender.com";
 
 const Auth = {
     getToken() {
