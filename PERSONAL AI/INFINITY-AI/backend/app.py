@@ -21,8 +21,6 @@ def create_app():
     db.init_app(app)
     bcrypt.init_app(app)
 
-    CORS(app, resources={r"/api/*": {"origins": app.config["FRONTEND_ORIGIN"]}})
-
     app.register_blueprint(auth_bp)
     app.register_blueprint(chat_bp)
     app.register_blueprint(todo_bp)
