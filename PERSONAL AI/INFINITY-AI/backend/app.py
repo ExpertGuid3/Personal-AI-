@@ -15,6 +15,7 @@ from routes.dashboard import dashboard_bp
 
 def create_app():
     app = Flask(__name__)
+    CORS(app)
     app.config.from_object(Config)
 
     db.init_app(app)
