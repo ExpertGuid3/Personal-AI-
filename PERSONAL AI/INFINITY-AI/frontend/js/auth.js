@@ -67,7 +67,7 @@ if (registerForm) {
         btn.textContent = "Creating account...";
 
         try {
-            const data = await apiRequest("/auth/register", {
+            const data = await apiRequest("/api/auth/register", {
                 method: "POST",
                 body: payload,
             });
