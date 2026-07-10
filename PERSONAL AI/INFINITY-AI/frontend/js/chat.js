@@ -98,7 +98,7 @@ async function sendMessage(prefilledText) {
     addTypingIndicator();
 
     try {
-        const data = await apiRequest("/chat/send", {
+        const data = await apiRequest("/api/chat/send", {
             method: "POST",
             body: { message: text, session_id: currentSessionId },
         });
@@ -151,7 +151,7 @@ async function openSession(sessionId, itemEl) {
 
     messagesEl.innerHTML = "";
     try {
-        const data = await apiRequest(`/chat/history/${sessionId}`);
+        const data = await apiRequest(`/api/chat/history/${sessionId}`);
         if (!data.messages.length) {
             showEmptyState(true);
             return;
@@ -165,7 +165,7 @@ async function openSession(sessionId, itemEl) {
 
 async function loadSessions() {
     try {
-        const data = await apiRequest("/chat/sessions");
+        const data = await apiRequest("/api/chat/sessions");
         const emptyHint = document.getElementById("historyEmptyHint");
 
         historyNav.querySelectorAll(".history-item").forEach(el => el.remove());
