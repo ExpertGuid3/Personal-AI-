@@ -19,9 +19,10 @@ def create_app():
     app.config.from_object(Config)
     
     print("GEMINI_API_KEY exists:",
-          app.config.get("GEMINI_API_KEY"))
-print("Has key:,
-bool(app.config.get("GEMINI_API_KEY"))
+app.config.get("GEMINI_API_KEY"))
+    print("Has key:,
+bool(app.config.get("GEMINI_API_KEY")
+    ))
 
     db.init_app(app)
     bcrypt.init_app(app)
