@@ -26,8 +26,8 @@ def _has_key():
 def _model():
     _ensure_configured()
     print("Using model:",
-    current_app.config.get("GEMINI_MODEL", "gemini-2.0-flash"))
-    return genai.GenerativeModel(current_app.config.get("GEMINI_MODEL", "gemini-2.0-flash"))
+    current_app.config.get("GEMINI_MODEL", "gemini-2.5-flash"))
+    return genai.GenerativeModel(current_app.config.get("GEMINI_MODEL", "gemini-2.5-flash"))
 
 
 def _generate(prompt):
