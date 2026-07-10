@@ -17,8 +17,11 @@ def create_app():
     app = Flask(__name__)
     CORS(app)
     app.config.from_object(Config)
-    print("GEMINI_API_KEY exists:", bool(app.config.get("GEMINI_API_KEY")))
-print("GEMINI_API_KEY value:", app.config.get("GEMINI_API_KEY"))
+    
+    print("GEMINI_API_KEY exists:",
+          app.config.get("GEMINI_API_KEY"))
+print("Has key:,
+bool(app.config.get("GEMINI_API_KEY"))
 
     db.init_app(app)
     bcrypt.init_app(app)
