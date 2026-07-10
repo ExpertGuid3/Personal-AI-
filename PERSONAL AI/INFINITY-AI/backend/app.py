@@ -20,7 +20,7 @@ def create_app():
     
     print("GEMINI_API_KEY exists:",
 app.config.get("GEMINI_API_KEY"))
-    print("Has key:,
+    print("Has key:",
 bool(app.config.get("GEMINI_API_KEY")
     ))
 
