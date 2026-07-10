@@ -155,7 +155,7 @@ async function sendMiniMessage() {
     miniChat.scrollTop = miniChat.scrollHeight;
 
     try {
-        const data = await apiRequest("/chat/send", {
+        const data = await apiRequest("/api/chat/send", {
             method: "POST",
             body: { message: text, session_id: miniSessionId },
         });
