@@ -37,7 +37,7 @@ function renderTasks(tasks) {
         cb.addEventListener("change", async () => {
             const id = cb.closest(".task-row").dataset.id;
             try {
-                await apiRequest(`/todos/${id}`, { method: "PUT", body: { is_done: cb.checked } });
+                await apiRequest(`/api/todos/${id}`, { method: "PUT", body: { is_done: cb.checked } });
                 loadTasks();
             } catch (err) {
                 showBanner(banner, err.message);
@@ -49,7 +49,7 @@ function renderTasks(tasks) {
         btn.addEventListener("click", async () => {
             const id = btn.closest(".task-row").dataset.id;
             try {
-                await apiRequest(`/todos/${id}`, { method: "DELETE" });
+                await apiRequest(`/api/todos/${id}`, { method: "DELETE" });
                 loadTasks();
             } catch (err) {
                 showBanner(banner, err.message);
@@ -60,7 +60,7 @@ function renderTasks(tasks) {
 
 async function loadTasks() {
     try {
-        const data = await apiRequest("/todos");
+        const data = await apiRequest("/api/todos");
         renderTasks(data.tasks);
     } catch (err) {
         showBanner(banner, err.message);
@@ -73,7 +73,7 @@ addTaskBtn.addEventListener("click", async () => {
 
     addTaskBtn.disabled = true;
     try {
-        await apiRequest("/todos", {
+        await apiRequest("/api/todos", {
             method: "POST",
             body: { title, priority: taskPriority.value },
         });
