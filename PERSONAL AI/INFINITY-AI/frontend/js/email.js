@@ -24,7 +24,7 @@ function showResult(text) {
 
 async function loadHistory() {
     try {
-        const data = await apiRequest("/email");
+        const data = await apiRequest("/api/email");
         if (!data.emails.length) {
             emailHistory.innerHTML = `<div class="empty-hint">Your generated emails will show up here.</div>`;
             return;
@@ -54,7 +54,7 @@ async function loadHistory() {
                 e.stopPropagation();
                 const id = btn.closest(".history-card").dataset.id;
                 try {
-                    await apiRequest(`/email/${id}`, { method: "DELETE" });
+                    await apiRequest(`/api/email/${id}`, { method: "DELETE" });
                     loadHistory();
                 } catch (err) {
                     showBanner(banner, err.message);
@@ -77,7 +77,7 @@ generateEmailBtn.addEventListener("click", async () => {
     generateEmailBtn.innerHTML = `<span class="spinner-dot"></span> Generating...`;
 
     try {
-        const data = await apiRequest("/email/generate", {
+        const data = await apiRequest("/api/email/generate", {
             method: "POST",
             body: { prompt, tone: emailTone.value },
         });
