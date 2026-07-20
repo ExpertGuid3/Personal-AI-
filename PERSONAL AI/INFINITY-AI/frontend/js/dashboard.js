@@ -16,7 +16,7 @@ document.getElementById("logoutBtn")?.addEventListener("click", e => {
 ========================================== */
 async function loadStats() {
     try {
-        const data = await apiRequest("/dashboard/stats");
+        const data = await apiRequest("/api/dashboard/stats");
         document.getElementById("statChats").textContent = data.chats;
         document.getElementById("statTasks").textContent = data.tasks_total;
         document.getElementById("statTasksPending").textContent = `${data.tasks_pending} pending`;
@@ -49,7 +49,7 @@ function badgeClass(status) {
 async function loadActivity() {
     const el = document.getElementById("activityTable");
     try {
-        const data = await apiRequest("/dashboard/activity");
+        const data = await apiRequest("/api/dashboard/activity");
         const rows = data.activity;
 
         if (!rows.length) {
@@ -82,7 +82,7 @@ async function loadActivity() {
 async function loadDashTasks() {
     const el = document.getElementById("dashTaskList");
     try {
-        const data = await apiRequest("/todos");
+        const data = await apiRequest("/api/todos");
         const tasks = data.tasks.slice(0, 5);
 
         if (!tasks.length) {
@@ -103,7 +103,7 @@ async function loadDashTasks() {
         el.querySelectorAll('input[type="checkbox"]').forEach(cb => {
             cb.addEventListener("change", async () => {
                 try {
-                    await apiRequest(`/todos/${cb.dataset.id}`, {
+                    await apiRequest(`/api/todos/${cb.dataset.id}`, {
                         method: "PUT",
                         body: { is_done: cb.checked },
                     });
