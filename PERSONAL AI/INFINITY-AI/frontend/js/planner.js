@@ -21,7 +21,7 @@ function showPlan(text) {
 
 async function loadHistory() {
     try {
-        const data = await apiRequest("/planner");
+        const data = await apiRequest("/api/planner");
         if (!data.plans.length) {
             plannerHistory.innerHTML = `<div class="empty-hint">Your daily plans will show up here.</div>`;
             return;
@@ -51,7 +51,7 @@ async function loadHistory() {
                 e.stopPropagation();
                 const id = btn.closest(".history-card").dataset.id;
                 try {
-                    await apiRequest(`/planner/${id}`, { method: "DELETE" });
+                    await apiRequest(`/api/planner/${id}`, { method: "DELETE" });
                     loadHistory();
                 } catch (err) {
                     showBanner(banner, err.message);
@@ -74,7 +74,7 @@ generatePlanBtn.addEventListener("click", async () => {
     generatePlanBtn.innerHTML = `<span class="spinner-dot"></span> Planning...`;
 
     try {
-        const data = await apiRequest("/planner/generate", { method: "POST", body: { goals } });
+        const data = await apiRequest("/api/planner/generate", { method: "POST", body: { goals } });
         showPlan(data.plan.plan);
         loadHistory();
     } catch (err) {
