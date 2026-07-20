@@ -21,7 +21,7 @@ function showSummary(text) {
 
 async function loadHistory() {
     try {
-        const data = await apiRequest("/notes");
+        const data = await apiRequest("/api/notes");
         if (!data.notes.length) {
             notesHistory.innerHTML = `<div class="empty-hint">Your summaries will show up here.</div>`;
             return;
@@ -51,7 +51,7 @@ async function loadHistory() {
                 e.stopPropagation();
                 const id = btn.closest(".history-card").dataset.id;
                 try {
-                    await apiRequest(`/notes/${id}`, { method: "DELETE" });
+                    await apiRequest(`/api/notes/${id}`, { method: "DELETE" });
                     loadHistory();
                 } catch (err) {
                     showBanner(banner, err.message);
@@ -74,7 +74,7 @@ summarizeBtn.addEventListener("click", async () => {
     summarizeBtn.innerHTML = `<span class="spinner-dot"></span> Summarizing...`;
 
     try {
-        const data = await apiRequest("/notes/summarize", { method: "POST", body: { text } });
+        const data = await apiRequest("/api/notes/summarize", { method: "POST", body: { text } });
         showSummary(data.note.summary);
         loadHistory();
     } catch (err) {
