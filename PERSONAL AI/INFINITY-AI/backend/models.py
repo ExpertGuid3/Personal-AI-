@@ -27,7 +27,7 @@ class User(db.Model):
             "last_name": self.last_name,
             "email": self.email,
             "phone": self.phone,
-            "created_at": self.created_at.isoformat(),
+            "created_at": self.created_at.isoformat() + "Z",
         }
 
 
@@ -47,7 +47,7 @@ class ChatMessage(db.Model):
             "session_id": self.session_id,
             "role": self.role,
             "content": self.content,
-            "created_at": self.created_at.isoformat(),
+            "created_at": self.created_at.isoformat() + "Z",
         }
 
 
@@ -67,7 +67,7 @@ class Task(db.Model):
             "title": self.title,
             "is_done": self.is_done,
             "priority": self.priority,
-            "created_at": self.created_at.isoformat(),
+            "created_at": self.created_at.isoformat() + "Z",
         }
 
 
@@ -85,7 +85,7 @@ class Note(db.Model):
             "id": self.id,
             "original_text": self.original_text,
             "summary": self.summary,
-            "created_at": self.created_at.isoformat(),
+            "created_at": self.created_at.isoformat() + "Z",
         }
 
 
@@ -105,7 +105,7 @@ class GeneratedEmail(db.Model):
             "prompt": self.prompt,
             "tone": self.tone,
             "result": self.result,
-            "created_at": self.created_at.isoformat(),
+            "created_at": self.created_at.isoformat() + "Z",
         }
 
 
@@ -123,7 +123,7 @@ class PlannerEntry(db.Model):
             "id": self.id,
             "goals": self.goals,
             "plan": self.plan,
-            "created_at": self.created_at.isoformat(),
+            "created_at": self.created_at.isoformat() + "Z",
         }
 
 
@@ -141,5 +141,5 @@ class Activity(db.Model):
             "id": self.id,
             "action": self.action,
             "status": self.status,
-            "created_at": self.created_at.isoformat(),
+            "created_at": self.created_at.isoformat() + "Z",
         }
