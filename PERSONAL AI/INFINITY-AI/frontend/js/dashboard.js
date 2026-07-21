@@ -54,13 +54,13 @@ async function loadActivity() {
 
         if (!rows.length) {
             el.innerHTML = `
-                <div class="activity-row activity-header"><span>Activity</span><span>Status</span><span>Last Access</span></div>
+                <div class="activity-row activity-header"><span>Activity</span><span>Status</span><span>Last</span></div>
                 <div class="activity-row"><span style="color:var(--text-muted);">No activity yet — try the AI tools!</span></div>`;
             return;
         }
 
         el.innerHTML =
-            `<div class="activity-row activity-header"><span>Activity</span><span>Status</span><span>Last Access</span></div>` +
+            `<div class="activity-row activity-header"><span>Activity</span><span>Status</span><span>Last</span></div>` +
             rows
                 .map(
                     r => `
