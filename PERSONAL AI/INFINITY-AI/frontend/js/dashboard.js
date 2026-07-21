@@ -67,7 +67,7 @@ async function loadActivity() {
                 <div class="activity-row">
                     <span>${r.action}</span>
                     <span class="badge ${badgeClass(r.status)}">${r.status}</span>
-                    <span>${timeAgo(r.created_at)}</span>
+                    <span>${timeAgo(r.last_accessed_at || r.created_at)}</span>
                 </div>`
                 )
                 .join("");
